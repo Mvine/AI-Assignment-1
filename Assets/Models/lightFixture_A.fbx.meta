@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3c801231328166b4b8e22b38bb6bb1b8
+guid: d6d0c12e775447842a27f873a9e03f78
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
@@ -7,13 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: DoorHandle
-    second: {fileID: 2100000, guid: e9143d2b193648441bb0773eb3c91f07, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material
-    second: {fileID: 2100000, guid: b9aeff94980e7654bb1cc69d06c05960, type: 2}
+      name: Light
+    second: {fileID: 2100000, guid: a362d309ea3ce564b8b924811407111d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -55,7 +50,7 @@ ModelImporter:
     importLights: 1
     fileIdsGeneration: 2
     swapUVChannels: 0
-    generateSecondaryUV: 1
+    generateSecondaryUV: 0
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1
@@ -67,7 +62,7 @@ ModelImporter:
     meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
-    secondaryUVAreaDistortion: 15
+    secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVMarginMethod: 1
     secondaryUVMinLightmapResolution: 40
