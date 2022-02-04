@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 279951924}
     m_Modifications:
+    - target: {fileID: 3695523805279389668, guid: 002fbba66b1899d4abe7d72629f0c07d, type: 3}
+      propertyPath: hot
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3777749114043023926, guid: 002fbba66b1899d4abe7d72629f0c07d, type: 3}
       propertyPath: m_Name
       value: fireExitDoor_A (12)
@@ -2498,6 +2502,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 279951924}
     m_Modifications:
+    - target: {fileID: 407560076990695430, guid: 002fbba66b1899d4abe7d72629f0c07d, type: 3}
+      propertyPath: hot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 407560076990695430, guid: 002fbba66b1899d4abe7d72629f0c07d, type: 3}
+      propertyPath: noisy
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3777749114043023926, guid: 002fbba66b1899d4abe7d72629f0c07d, type: 3}
       propertyPath: m_Name
       value: fireExitDoor_A
