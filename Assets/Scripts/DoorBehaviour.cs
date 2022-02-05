@@ -10,6 +10,7 @@ public class DoorBehaviour : MonoBehaviour
     [SerializeField] private GameObject doorHandle;
     [SerializeField] private Material hotMaterial;
     [SerializeField] private AudioSource audioSource;
+     [SerializeField] private TMPro.TextMeshPro safetyText;
 
 
 
@@ -17,7 +18,7 @@ public class DoorBehaviour : MonoBehaviour
 
     // Start is called before the first frame update
 
-    void Start()
+    void OnEnable()
     {
         Renderer handleRenderer = doorHandle.GetComponent<Renderer>();
 
@@ -29,6 +30,11 @@ public class DoorBehaviour : MonoBehaviour
         if(noisy)
         {
             audioSource.Play();
+        }
+
+        if(safe)
+        {
+            safetyText.text = "Safe";
         }
 
         //using the data from the spreadsheet, randomize the data here. Better yet find a way to do it on scene load

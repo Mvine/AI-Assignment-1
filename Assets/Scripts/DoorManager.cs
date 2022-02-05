@@ -14,6 +14,10 @@ public class DoorManager : MonoBehaviour
 
     private Transform _selection;
 
+    private float hotOdds;
+    private float noisyOdds;
+    private float safeOdds;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -51,26 +55,15 @@ public class DoorManager : MonoBehaviour
 
                 if(Input.GetKeyDown(KeyCode.E))
                 {
+                    selection.tag = "Untagged";
                     //should have an event happen here or something?
                     DoorBehaviour door =  selection.parent.GetComponent<DoorBehaviour>();
                     Debug.Log("you selected this door: " + selection.parent.name);
 
-                    if(door.safe)
-                    {
-                        //idk do something here
-                        Debug.Log("Safe");
-                    }
-                    else
-                    {
-                        Debug.Log("Not safe");
-                    }
-
-
-                    
+                    TMPro.TextMeshPro safetyText = door.gameObject.GetComponentInChildren<TMPro.TextMeshPro>();
+                    safetyText.enabled = true; 
                 }
-
-            }
-            
+            }          
         }
     }
 }
