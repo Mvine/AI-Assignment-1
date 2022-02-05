@@ -22,9 +22,6 @@ public class DoorManager : MonoBehaviour
     void Start()
     {
 
-
-        //set up the probabilities here, use mod 4 cause there are 25 doors. Gonna have to find a way to make sure it adds up to 100% using a floor / clamp
-
         importedData = GameObject.Find("FileImporter");
         if(importedData != null)
         {

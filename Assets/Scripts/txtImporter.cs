@@ -16,48 +16,42 @@ public class txtImporter : MonoBehaviour
 
     void Awake()
     {
+        //need to pass the loaded data between scenes
         DontDestroyOnLoad(transform.gameObject);
     }
     void Start()
     {
-        Debug.Log("Need this to import the txt and parse it");
+        //Debug.Log("Need this to import the txt and parse it");
     }
 
     // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     public void Import()
     {
-        //something something something import "inputField.text"
-
-        //something something parse the file here
-        //Debug.Log(inputField.text);
-        // do some data validation too
         string rawData = string.Empty;
 
         //Read the text from directly from the test.txt file
 
         using (StreamReader sr = new StreamReader(inputField.text))
         {
+            //check if there is a next line
             while (sr.Peek() >= 0)
             {
                 rawData = sr.ReadLine();
                 string resultString = Regex.Match(rawData, "[+-]?([0-9]*[.])?[0-9]+").Value;
                 Debug.Log(resultString);
-
+                //if there is a number then add it to the list. I am assuming that the properties order remains consistent between txt files
                 if (resultString != string.Empty)
                 {
-                    int toList = (int)((float.Parse(resultString, System.Globalization.CultureInfo.InvariantCulture)) * 100);
+                    //I have 25 doors so i multiply the float by 25 to get my door value
+                    int toList = (int)((float.Parse(resultString, System.Globalization.CultureInfo.InvariantCulture)) * 25);
                     numDoors.Add(toList);
                 }
 
             }
 
         }
-
+        //load the play scene
         SceneManager.LoadScene("PlayScene");
     }
 }

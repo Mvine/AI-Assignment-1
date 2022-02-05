@@ -10,7 +10,7 @@ public class DoorBehaviour : MonoBehaviour
     [SerializeField] private GameObject doorHandle;
     [SerializeField] private Material hotMaterial;
     [SerializeField] private AudioSource audioSource;
-     [SerializeField] private TMPro.TextMeshPro safetyText;
+    [SerializeField] private TMPro.TextMeshPro safetyText;
 
 
     //Doors start disabled and then are enabled by the door manager after the parameters have been changed
@@ -31,6 +31,8 @@ public class DoorBehaviour : MonoBehaviour
             safetyText.text = "Safe";
         }
     }
+
+    //getters and setters
 
     public void setHot(bool p_hot)
     {
