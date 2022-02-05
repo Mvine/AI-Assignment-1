@@ -15,9 +15,8 @@ public class DoorManager : MonoBehaviour
     [SerializeField] private GameObject doorParent;
 
     private Transform _selection;
-
-    //Types of doors
-    private int YYY, YYN, YNY, YNN, NYY, NYN, NNY, NNN;
+    private GameObject importedData;
+    private List<int> doorList;
 
     // Start is called before the first frame update
     void Start()
@@ -26,56 +25,53 @@ public class DoorManager : MonoBehaviour
 
         //set up the probabilities here, use mod 4 cause there are 25 doors. Gonna have to find a way to make sure it adds up to 100% using a floor / clamp
 
-        YYY = 3;
-        YYN = 3;
-        YNY = 3;
-        YNN = 3;
-        NYY = 3;
-        NYN = 3;
-        NNY = 3;
-        NNN = 4;
+        importedData = GameObject.Find("FileImporter");
+        if(importedData != null)
+        {
+            doorList = importedData.GetComponent<txtImporter>().numDoors;
+        }
 
 
         //initialize the doors with the right parameters here
         for(int i = 0 ; i < doorParent.transform.childCount ; i++)
         {
-            if(i<YYY)
+            if(i<doorList[0])
             {
                 doorParent.transform.GetChild(i).gameObject.GetComponent<DoorBehaviour>().setHot(true);
                 doorParent.transform.GetChild(i).gameObject.GetComponent<DoorBehaviour>().setNoisy(true);
                 doorParent.transform.GetChild(i).gameObject.GetComponent<DoorBehaviour>().setSafe(true);
             }
-            else if(i < YYY + YYN)
+            else if(i < doorList[0] + doorList[1])
             {
                 doorParent.transform.GetChild(i).gameObject.GetComponent<DoorBehaviour>().setHot(true);
                 doorParent.transform.GetChild(i).gameObject.GetComponent<DoorBehaviour>().setNoisy(true);
                 doorParent.transform.GetChild(i).gameObject.GetComponent<DoorBehaviour>().setSafe(false);
             }
-            else if(i < YYY + YYN + YNY)
+            else if(i < doorList[0] + doorList[1] + doorList[2])
             {
                 doorParent.transform.GetChild(i).gameObject.GetComponent<DoorBehaviour>().setHot(true);
                 doorParent.transform.GetChild(i).gameObject.GetComponent<DoorBehaviour>().setNoisy(false);
                 doorParent.transform.GetChild(i).gameObject.GetComponent<DoorBehaviour>().setSafe(true);
             }
-            else if(i < YYY + YYN + YNY + YNN)
+            else if(i < doorList[0] + doorList[1] + doorList[2] + doorList[3])
             {
                 doorParent.transform.GetChild(i).gameObject.GetComponent<DoorBehaviour>().setHot(true);
                 doorParent.transform.GetChild(i).gameObject.GetComponent<DoorBehaviour>().setNoisy(false);
                 doorParent.transform.GetChild(i).gameObject.GetComponent<DoorBehaviour>().setSafe(false);
             }
-            else if(i < YYY + YYN + YNY + YNN + NYY)
+            else if(i < doorList[0] + doorList[1] + doorList[2] + doorList[3] + doorList[4])
             {
                 doorParent.transform.GetChild(i).gameObject.GetComponent<DoorBehaviour>().setHot(false);
                 doorParent.transform.GetChild(i).gameObject.GetComponent<DoorBehaviour>().setNoisy(true);
                 doorParent.transform.GetChild(i).gameObject.GetComponent<DoorBehaviour>().setSafe(true);
             }
-            else if(i < YYY + YYN + YNY + YNN + NYY + NYN)
+            else if(i < doorList[0] + doorList[1] + doorList[2] + doorList[3] + doorList[4] + doorList[5])
             {
                 doorParent.transform.GetChild(i).gameObject.GetComponent<DoorBehaviour>().setHot(false);
                 doorParent.transform.GetChild(i).gameObject.GetComponent<DoorBehaviour>().setNoisy(true);
                 doorParent.transform.GetChild(i).gameObject.GetComponent<DoorBehaviour>().setSafe(false);
             }
-            else if(i < YYY + YYN + YNY + YNN + NYY + NYN + NNY)
+            else if(i < doorList[0] + doorList[1] + doorList[2] + doorList[3] + doorList[4] + doorList[5] + doorList[6])
             {
                 doorParent.transform.GetChild(i).gameObject.GetComponent<DoorBehaviour>().setHot(false);
                 doorParent.transform.GetChild(i).gameObject.GetComponent<DoorBehaviour>().setNoisy(false);

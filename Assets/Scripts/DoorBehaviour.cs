@@ -44,7 +44,7 @@ public class DoorBehaviour : MonoBehaviour
 
      public void setNoisy(bool p_noisy)
     {
-        hot = p_noisy;
+        noisy = p_noisy;
     }
 
     public bool getNoisy()
@@ -54,15 +54,12 @@ public class DoorBehaviour : MonoBehaviour
 
      public void setSafe(bool p_safe)
     {
-        hot = p_safe;
+        safe = p_safe;
     }
 
     public bool getSafe()
     {
         return safe;
     }
-
-
-
     
 }

@@ -3,18 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.IO;
+using System.Text.RegularExpressions;
+using System.Globalization;
 
 public class txtImporter : MonoBehaviour
 {
     [SerializeField] private TMPro.TMP_InputField inputField;
 
-    [SerializeField] private string stringData;
-
     // Start is called before the first frame update
 
-    public float hotOdds = 0.0f;
-    public float noisyOdds = 0.0f;
-    public float safeOdds = 0.0f;
+    public List<int> numDoors = new List<int>();
 
     void Awake()
     {
@@ -28,7 +26,7 @@ public class txtImporter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void Import()
@@ -36,15 +34,29 @@ public class txtImporter : MonoBehaviour
         //something something something import "inputField.text"
 
         //something something parse the file here
-        Debug.Log(inputField.text);
-        stringData = inputField.text;
+        //Debug.Log(inputField.text);
         // do some data validation too
+        string rawData = string.Empty;
 
         //Read the text from directly from the test.txt file
-        StreamReader reader = new StreamReader(inputField.text); 
-        Debug.Log(reader.ReadToEnd());
-        reader.Close();
-        
+
+        using (StreamReader sr = new StreamReader(inputField.text))
+        {
+            while (sr.Peek() >= 0)
+            {
+                rawData = sr.ReadLine();
+                string resultString = Regex.Match(rawData, "[+-]?([0-9]*[.])?[0-9]+").Value;
+                Debug.Log(resultString);
+
+                if (resultString != string.Empty)
+                {
+                    int toList = (int)((float.Parse(resultString, System.Globalization.CultureInfo.InvariantCulture)) * 100);
+                    numDoors.Add(toList);
+                }
+
+            }
+
+        }
 
         SceneManager.LoadScene("PlayScene");
     }
