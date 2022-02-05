@@ -13,11 +13,7 @@ public class DoorBehaviour : MonoBehaviour
      [SerializeField] private TMPro.TextMeshPro safetyText;
 
 
-
-
-
-    // Start is called before the first frame update
-
+    //Doors start disabled and then are enabled by the door manager after the parameters have been changed
     void OnEnable()
     {
         Renderer handleRenderer = doorHandle.GetComponent<Renderer>();
@@ -26,23 +22,47 @@ public class DoorBehaviour : MonoBehaviour
         {
             handleRenderer.material = hotMaterial;
         }
-
         if(noisy)
         {
             audioSource.Play();
         }
-
         if(safe)
         {
             safetyText.text = "Safe";
         }
+    }
 
-        //using the data from the spreadsheet, randomize the data here. Better yet find a way to do it on scene load
-    }
-    
-    // Update is called once per frame
-    void Update()
+    public void setHot(bool p_hot)
     {
-        //I don't think I need this
+        hot = p_hot;
     }
+
+    public bool getHot()
+    {
+        return hot;
+    }
+
+     public void setNoisy(bool p_noisy)
+    {
+        hot = p_noisy;
+    }
+
+    public bool getNoisy()
+    {
+        return noisy;
+    }
+
+     public void setSafe(bool p_safe)
+    {
+        hot = p_safe;
+    }
+
+    public bool getSafe()
+    {
+        return safe;
+    }
+
+
+
+    
 }

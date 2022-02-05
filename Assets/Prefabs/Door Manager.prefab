@@ -47,3 +47,4 @@ MonoBehaviour:
   highlightMaterial: {fileID: 2100000, guid: 2f174acbab1cc6a4cbef0aa109542299, type: 2}
   rayDistance: 3
   selectableTag: Selectable
+  doorParent: {fileID: 0}
